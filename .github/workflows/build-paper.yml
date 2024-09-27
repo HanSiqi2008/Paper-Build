@@ -26,8 +26,8 @@ jobs:
       - uses: actions/checkout@v4
 
       # 安装git（不太确定git有没有预装）
-      - name: install git
-        run: su root && apt-get install git
+      # - name: install git
+      #   run: su root && apt-get install git
 
       # 设置git名称和邮箱（虽然不是真的）
       - name: setup git
