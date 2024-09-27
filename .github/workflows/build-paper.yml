@@ -45,6 +45,10 @@ jobs:
         run: |
           git clone https://github.com/PaperMC/Paper
           git clone https://github.com/PaperMC/Folia
+          git clone https://github.com/LeavesMC/Leaves
+          git clone https://github.com/pufferfish-gg/Pufferfish
+          git clone https://github.com/PurpurMC/Purpur
+          git clone https://github.com/Winds-Studio/Leaf
 
       # 构建paper
       - name: build paper
@@ -60,16 +64,73 @@ jobs:
           ./gradlew applypatches
           ./gradlew createMojmapPaperclipJar
 
+      # 构建pufferfish
+      - name: build pufferfish
+        run: |
+          cd Pufferfish
+          ./gradlew applypatches
+          ./gradlew createMojmapPaperclipJar
+          
+      # 构建purpur
+      - name: build purpur
+        run: |
+          cd Purpur
+          ./gradlew applypatches
+          ./gradlew createMojmapPaperclipJar
+
+      # 构建leaf
+      - name: build leaf
+        run: |
+          cd Leaf
+          ./gradlew applypatches
+          ./gradlew createMojmapPaperclipJar
+
+      # 构建leaves
+      - name: build leaves
+        run: |
+          cd Leaves
+          ./gradlew applypatches
+          ./gradlew createMojmapPaperclipJar
+
+          
       # 归档paper
-      - name: Upload Artifacts 
+      - name: Upload Paper Artifacts 
         uses: actions/upload-artifact@v4
         with:
           name: Paper Artifact
           path: Paper/build/libs/*
 
       # 归档folia
-      - name: Upload Artifacts 
+      - name: Upload Folia Artifacts 
         uses: actions/upload-artifact@v4
         with:
           name: Folia Artifact
           path: Folia/build/libs/*
+
+      # 归档pufferfish
+      - name: Upload Pufferfish Artifacts 
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pufferfish Artifact
+          path: Pufferfish/build/libs/*
+
+      # 归档purpur
+      - name: Upload Purpur Artifacts 
+        uses: actions/upload-artifact@v4
+        with:
+          name: Purpur Artifact
+          path: Purpur/build/libs/*
+
+      # 归档leaf
+      - name: Upload Leaf Artifacts 
+        uses: actions/upload-artifact@v4
+        with:
+          name: Leaf Artifact
+          path: Leaf/build/libs/*
+          
+      # 归档leaves
+      - name: Upload Leaves Artifacts 
+        uses: actions/upload-artifact@v4
+        with:
+          name: Leaves Artifact
+          path: Leaves/build/libs/*
