@@ -55,42 +55,42 @@ jobs:
         run: |
           cd Paper
           ./gradlew applypatches
-          ./gradlew createMojmapPaperclipJar
+          ./gradlew createMojmapBundlerJar
 
       # 构建folia
       - name: build folia
         run: |
           cd Folia
           ./gradlew applypatches
-          ./gradlew createMojmapPaperclipJar
+          ./gradlew createMojmapBundlerJar
 
       # 构建pufferfish
       - name: build pufferfish
         run: |
           cd Pufferfish
           ./gradlew applypatches
-          ./gradlew createMojmapPaperclipJar
+          ./gradlew createMojmapBundlerJar
           
       # 构建purpur
       - name: build purpur
         run: |
           cd Purpur
           ./gradlew applypatches
-          ./gradlew createMojmapPaperclipJar
+          ./gradlew createMojmapBundlerJar
 
       # 构建leaf
       - name: build leaf
         run: |
           cd Leaf
           ./gradlew applypatches
-          ./gradlew createMojmapPaperclipJar
+          ./gradlew createMojmapBundlerJar
 
       # 构建leaves
       - name: build leaves
         run: |
           cd Leaves
           ./gradlew applypatches
-          ./gradlew createMojmapPaperclipJar
+          ./gradlew createMojmapBundlerJar
 
           
       # 归档paper
