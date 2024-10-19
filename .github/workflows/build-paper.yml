@@ -48,6 +48,7 @@ jobs:
           git clone https://github.com/LeavesMC/Leaves
           git clone https://github.com/pufferfish-gg/Pufferfish
           git clone https://github.com/PurpurMC/Purpur
+          git clone https://github.com/CraftCanvasMC/Canvas
           git clone https://github.com/Winds-Studio/Leaf
 
       # 构建paper
@@ -77,6 +78,14 @@ jobs:
           cd Purpur
           ./gradlew applypatches
           ./gradlew createMojmapBundlerJar
+
+      # 构建canvas
+      - name: build canvas
+        run: |
+          cd Canvas
+          ./gradlew applypatches
+          ./gradlew createCanvasServer
+          ./gradlew generateDevelopmentBundle --info
 
       # 构建leaf
       - name: build leaf
@@ -120,6 +129,13 @@ jobs:
         with:
           name: Purpur Artifact
           path: Purpur/build/libs/*
+
+      # 归档canvas
+      - name: Upload Canvas Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Canvas Artifact
+          path: Canvas/build/libs/*
 
       # 归档leaf
       - name: Upload Leaf Artifacts 
