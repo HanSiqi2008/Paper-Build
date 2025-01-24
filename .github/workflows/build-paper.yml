@@ -10,6 +10,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+  # 定时构建，每周一、五凌晨三点触发
+  schedule:
+    - cron: '0 3 * * 1,5'
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
