@@ -74,11 +74,11 @@ jobs:
           ./gradlew createMojmapBundlerJar
 
       # 构建pufferfish
-      - name: build pufferfish
-        run: |
-          cd Pufferfish
-          ./gradlew applypatches
-          ./gradlew createMojmapBundlerJar
+      #- name: build pufferfish
+      #  run: |
+      #    cd Pufferfish
+      #    ./gradlew applypatches
+      #    ./gradlew createMojmapBundlerJar
           
       # 构建purpur
       - name: build purpur
@@ -125,11 +125,11 @@ jobs:
           path: Folia/build/libs/*
 
       # 归档pufferfish
-      - name: Upload Pufferfish Artifacts 
-        uses: actions/upload-artifact@v4
-        with:
-          name: Pufferfish Artifact
-          path: Pufferfish/build/libs/*
+      #- name: Upload Pufferfish Artifacts 
+      #  uses: actions/upload-artifact@v4
+      #  with:
+      #    name: Pufferfish Artifact
+      #    path: Pufferfish/build/libs/*
 
       # 归档purpur
       - name: Upload Purpur Artifacts 
