@@ -74,17 +74,16 @@ jobs:
           ./gradlew createMojmapBundlerJar
 
       # 构建pufferfish
-      #- name: build pufferfish
-      #  run: |
-      #    cd Pufferfish
-      #    ./gradlew applypatches
-      #    ./gradlew createMojmapBundlerJar
+      - name: build pufferfish
+        run: |
+          cd Pufferfish
+          ./gradlew build
           
       # 构建purpur
       - name: build purpur
         run: |
           cd Purpur
-          ./gradlew applypatches
+          ./gradlew applyallpatches
           ./gradlew createMojmapBundlerJar
 
       # 构建canvas
@@ -99,7 +98,7 @@ jobs:
       - name: build leaf
         run: |
           cd Leaf
-          ./gradlew applypatches
+          ./gradlew applyallpatches
           ./gradlew createMojmapBundlerJar
 
       # 构建leaves
@@ -115,7 +114,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Paper Artifact
-          path: Paper/build/libs/*
+          path: Paper/paper-server/build/libs/*
 
       # 归档folia
       - name: Upload Folia Artifacts 
@@ -125,18 +124,18 @@ jobs:
           path: Folia/build/libs/*
 
       # 归档pufferfish
-      #- name: Upload Pufferfish Artifacts 
-      #  uses: actions/upload-artifact@v4
-      #  with:
-      #    name: Pufferfish Artifact
-      #    path: Pufferfish/build/libs/*
+      - name: Upload Pufferfish Artifacts 
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pufferfish Artifact
+          path: Pufferfish/build/libs/*
 
       # 归档purpur
       - name: Upload Purpur Artifacts 
         uses: actions/upload-artifact@v4
         with:
           name: Purpur Artifact
-          path: Purpur/build/libs/*
+          path: Purpur/purpur-server/build/libs/*
 
       # 归档canvas
       - name: Upload Canvas Artifacts
@@ -150,7 +149,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Leaf Artifact
-          path: Leaf/build/libs/*
+          path: Leaf/leaf-server/build/libs/*
           
       # 归档leaves
       - name: Upload Leaves Artifacts 
