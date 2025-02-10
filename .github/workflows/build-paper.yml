@@ -90,9 +90,8 @@ jobs:
       - name: build canvas
         run: |
           cd Canvas
-          ./gradlew applypatches
-          ./gradlew createCanvasServer
-          ./gradlew generateDevelopmentBundle --info
+          ./gradlew applyallpatches
+          ./gradlew createMojmapBundlerJar
 
       # 构建leaf
       - name: build leaf
@@ -142,7 +141,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Canvas Artifact
-          path: Canvas/build/libs/*
+          path: Canvas/canvas-server/build/libs/*
 
       # 归档leaf
       - name: Upload Leaf Artifacts 
