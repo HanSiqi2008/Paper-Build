@@ -104,7 +104,7 @@ jobs:
       - name: build leaves
         run: |
           cd Leaves
-          ./gradlew applypatches
+          ./gradlew applyallpatches
           ./gradlew createMojmapBundlerJar
 
           
@@ -155,4 +155,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Leaves Artifact
-          path: Leaves/build/libs/*
+          path: Leaves/leaves-server/build/libs/*
