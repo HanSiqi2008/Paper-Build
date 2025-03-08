@@ -44,8 +44,8 @@ jobs:
       #   run: su root && apt-get install git
 
       # 设置git名称和邮箱（虽然不是真的）
-      - name: setup git
-        run: git config --global user.email "123@123.123" && git config --global user.name "123" && git config --global --unset core.autocrlf
+      #- name: setup git
+      #  run: git config --global user.email "123@123.123" && git config --global user.name "123" && git config --global --unset core.autocrlf
 
       # 下载buildtools
       - name: download spigot buildtools
