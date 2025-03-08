@@ -50,16 +50,20 @@ jobs:
       # 下载buildtools
       - name: download spigot buildtools
         run: curl -o BuildTools.jar https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+
+      # 创建输出目录
+      - name: mkdir
+        run: mkdir output
         
       # 构建spigot与craftbukkit
       - name: build spigot
         run: |
-            java -Xmx4G -jar BuildTools.jar
-            java -Xmx4G -jar BuildTools.jar --compile craftbukkit
+            java -Xmx4G -jar BuildTools.jar --o ./output
+            java -Xmx4G -jar BuildTools.jar --compile craftbukkit --o ./output
           
       # 归档spigot
       - name: Upload Spigot Artifacts 
         uses: actions/upload-artifact@v4
         with:
           name: Spigot Artifact
-          path: *
+          path: output/*.jar
